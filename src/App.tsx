@@ -10,6 +10,7 @@ import UseCasesSection from './components/UseCasesSection';
 import FaqSection from './components/FaqSection';
 import RoadmapSection from './components/RoadmapSection';
 import ContactSection from './components/ContactSection';
+import ReqIfViewerSection from './components/ReqIfViewerSection';
 import Footer from './components/Footer';
 import './styles/animations.css';
 
@@ -37,6 +38,7 @@ function App() {
       <UseCasesSection />
       <FaqSection />
       <RoadmapSection />
+      <ReqIfViewerSection />
       <ContactSection />
       <Footer />
     </div>

@@ -40,6 +40,7 @@ const Navbar: React.FC = () => {
             <a href="#solution" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">Solution</a>
             <a href="#benefits" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">Benefits</a>
             <a href="#use-cases" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">Industries</a>
+            <a href="#reqif-viewer" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">ReqIF Viewer</a>
             <a href="#about" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">About</a>
             <a href="#contact" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">Contact</a>
           </div>
@@ -77,6 +78,7 @@ const Navbar: React.FC = () => {
           <a href="#solution" className="text-gray-700 hover:text-blue-600 font-medium px-2 py-2 transition-colors">Solution</a>
           <a href="#benefits" className="text-gray-700 hover:text-blue-600 font-medium px-2 py-2 transition-colors">Benefits</a>
           <a href="#use-cases" className="text-gray-700 hover:text-blue-600 font-medium px-2 py-2 transition-colors">Industries</a>
+          <a href="#reqif-viewer" className="text-gray-700 hover:text-blue-600 font-medium px-2 py-2 transition-colors">ReqIF Viewer</a>
           <a href="#about" className="text-gray-700 hover:text-blue-600 font-medium px-2 py-2 transition-colors">About</a>
           <a href="#contact" className="text-gray-700 hover:text-blue-600 font-medium px-2 py-2 transition-colors">Contact</a>
           <a
