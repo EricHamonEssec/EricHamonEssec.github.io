@@ -16,8 +16,7 @@ const ContactSection: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real implementation, this would send the form data to a server
-    alert('Thank you for your interest! We will contact you shortly.');
+    window.location.href = `mailto:contact@orchestallai.com?subject=Contact from ${formData.name}&body=Name: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0ACompany: ${formData.company}%0D%0A%0D%0AMessage:%0D%0A${formData.message}`;
     setFormData({
       name: '',
       email: '',

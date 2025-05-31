@@ -1,4 +1,5 @@
 import React from 'react';
+import { Linkedin, Twitter } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
@@ -11,12 +12,30 @@ const Footer: React.FC = () => {
                 <img 
                   src="/logo.svg" 
                   alt="OrchestAll AI Logo" 
-                  className="h-10 w-auto brightness-0 invert" // Inverted to make it white
+                  className="h-10 w-auto brightness-0 invert"
                 />
               </div>
               <p className="text-gray-400 mb-4">
                 Transforming complex product development with AI-powered orchestration.
               </p>
+              <div className="flex space-x-4">
+                <a 
+                  href="https://www.linkedin.com/company/orchestall-ai" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  <Linkedin className="w-6 h-6" />
+                </a>
+                <a 
+                  href="https://x.com/orchestallai" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  <Twitter className="w-6 h-6" />
+                </a>
+              </div>
             </div>
             
             <div>
@@ -26,13 +45,21 @@ const Footer: React.FC = () => {
                 <li><a href="#solution" className="text-gray-400 hover:text-white transition-colors">Solution</a></li>
                 <li><a href="#benefits" className="text-gray-400 hover:text-white transition-colors">Benefits</a></li>
                 <li><a href="#use-cases" className="text-gray-400 hover:text-white transition-colors">Industries</a></li>
+                <li><a href="#investors" className="text-gray-400 hover:text-white transition-colors">Investors</a></li>
               </ul>
             </div>
             
             <div>
               <h3 className="text-lg font-semibold mb-4">Resources</h3>
               <ul className="space-y-2">
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+                <li>
+                  <a 
+                    href="/about" 
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    About Us: Accelerating Innovation with Agentic AI
+                  </a>
+                </li>
                 <li><a href="#contact" className="text-gray-400 hover:text-white transition-colors">Contact</a></li>
                 <li><a href="#faq" className="text-gray-400 hover:text-white transition-colors">FAQ</a></li>
                 <li><a href="#roadmap" className="text-gray-400 hover:text-white transition-colors">Roadmap</a></li>

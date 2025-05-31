@@ -11,18 +11,17 @@ import FaqSection from './components/FaqSection';
 import RoadmapSection from './components/RoadmapSection';
 import ContactSection from './components/ContactSection';
 import ReqIfViewerSection from './components/ReqIfViewerSection';
+import InvestorsSection from './components/InvestorsSection';
 import Footer from './components/Footer';
 import './styles/animations.css';
 
 function App() {
   React.useEffect(() => {
-    // Update document title
     document.title = "OrchestAll AI - AI Team Orchestration Platform";
     
-    // Update favicon (optional)
     const favicon: HTMLLinkElement | null = document.querySelector("link[rel='icon']");
     if (favicon) {
-      favicon.href = "/vite.svg"; // Using default Vite favicon since we don't have a custom one
+      favicon.href = "/vite.svg";
     }
   }, []);
 
@@ -36,6 +35,7 @@ function App() {
       <BenefitsSection />
       <DifferentiationSection />
       <UseCasesSection />
+      <InvestorsSection />
       <FaqSection />
       <RoadmapSection />
       <ReqIfViewerSection />
@@ -44,5 +44,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
