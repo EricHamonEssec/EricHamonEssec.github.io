@@ -7,11 +7,11 @@ import ArchitectureSection from './components/ArchitectureSection';
 import BenefitsSection from './components/BenefitsSection';
 import DifferentiationSection from './components/DifferentiationSection';
 import UseCasesSection from './components/UseCasesSection';
+import InvestorsSection from './components/InvestorsSection';
 import FaqSection from './components/FaqSection';
 import RoadmapSection from './components/RoadmapSection';
-import ContactSection from './components/ContactSection';
 import ReqIfViewerSection from './components/ReqIfViewerSection';
-import InvestorsSection from './components/InvestorsSection';
+import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 import './styles/animations.css';
 
@@ -45,4 +45,4 @@ function App() {
   );
 }
 
-export default App
+export default App;
