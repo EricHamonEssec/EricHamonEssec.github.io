@@ -17,7 +17,7 @@ const HeroSection: React.FC = () => {
         <div className="max-w-5xl mx-auto text-center">
           <div className="animate-fade-in-up">
             <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 leading-tight mb-6">
-              OrchestAll AI - The First AI Team Orchestration Platform for Complex Product Development in Regulated Environments
+              OrchestAll - Your First AI Product Development Team Experts
             </h1>
             
             <p className="text-lg md:text-xl text-gray-700 mb-8 md:mb-12 max-w-3xl mx-auto">

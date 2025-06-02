@@ -54,10 +54,10 @@ const Footer: React.FC = () => {
               <ul className="space-y-2">
                 <li>
                   <a 
-                    href="/about" 
+                    href="#solution" 
                     className="text-gray-400 hover:text-white transition-colors"
                   >
-                    About Us: Accelerating Innovation with Agentic AI
+                    About Us
                   </a>
                 </li>
                 <li><a href="#contact" className="text-gray-400 hover:text-white transition-colors">Contact</a></li>
