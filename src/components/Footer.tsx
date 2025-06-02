@@ -33,7 +33,7 @@ const Footer: React.FC = () => {
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
-                  <Twitter className="w-6 h-6" />
+                  <X className="w-6 h-6" />
                 </a>
               </div>
             </div>
