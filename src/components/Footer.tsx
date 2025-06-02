@@ -1,5 +1,5 @@
 import React from 'react';
-import { Linkedin, Twitter } from 'lucide-react';
+import { Linkedin, X } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
