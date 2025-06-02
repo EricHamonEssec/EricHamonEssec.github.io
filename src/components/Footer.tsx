@@ -1,5 +1,5 @@
 import React from 'react';
-import { Linkedin, X } from 'lucide-react';
+import { Linkedin, Twitter } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
@@ -33,7 +33,7 @@ const Footer: React.FC = () => {
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
-                  <X className="w-6 h-6" />
+                  <Twitter className="w-6 h-6" />
                 </a>
               </div>
             </div>
