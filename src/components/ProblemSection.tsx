@@ -1,72 +1,119 @@
 import React from 'react';
+import { AlertTriangle, Clock, DollarSign, Users } from 'lucide-react';
 
-interface ProblemPointProps {
-  title: string;
+interface StatCardProps {
+  icon: React.ReactNode;
+  value: string;
+  label: string;
   description: string;
 }
 
-const ProblemPoint: React.FC<ProblemPointProps> = ({ title, description }) => {
+const StatCard: React.FC<StatCardProps> = ({ icon, value, label, description }) => {
   return (
-    <div className="mb-6 md:mb-8">
-      <h3 className="text-lg md:text-xl font-semibold text-gray-800 mb-2">{title}</h3>
-      <p className="text-gray-600">{description}</p>
+    <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow">
+      <div className="flex items-center mb-4">
+        <div className="p-3 bg-red-50 rounded-xl mr-4">
+          {icon}
+        </div>
+        <div>
+          <div className="text-3xl font-bold text-red-600">{value}</div>
+          <div className="text-sm font-medium text-gray-600 uppercase tracking-wide">{label}</div>
+        </div>
+      </div>
+      <p className="text-gray-700">{description}</p>
     </div>
   );
 };
 
 const ProblemSection: React.FC = () => {
   return (
-    <section id="problem" className="py-16 md:py-24 bg-gray-50">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-6 text-center">
-            Complex Product Development: A Costly and Risky Challenge
-          </h2>
-          
-          <p className="text-lg text-gray-700 mb-12 text-center">
-            In today's industrial world, developing complex technical products represents a genuine obstacle course. 
-            Mechatronic systems, vehicles, industrial equipment, and other technical products must comply with a multitude 
-            of regulations and development standards that require costly, lengthy, and risky processes.
-          </p>
-          
-          <div className="grid md:grid-cols-2 gap-x-12 gap-y-6">
-            <ProblemPoint 
-              title="High Costs and Endless Cycles"
-              description="Technical projects mobilize multidisciplinary teams composed of rare and highly qualified profiles, resulting in substantial budgets and extended timelines."
-            />
-            
-            <ProblemPoint 
-              title="Fragmentation into Silos"
-              description="The separation of activities into silos creates breaks in the flow of information and complicates coordination between different development phases."
-            />
-            
-            <ProblemPoint 
-              title="Lack of Traceability"
-              description="The absence of rigorous traceability between requirements, design, implementation, and testing generates risks of non-compliance and difficulties during audits."
-            />
-            
-            <ProblemPoint 
-              title="Dependence on Manual Processes"
-              description="Many critical steps still rely on manual processes, sources of errors and inefficiencies."
-            />
-            
-            <ProblemPoint 
-              title="Increasing Complexity"
-              description="The constant evolution of products and regulatory frameworks exponentially increases project complexity."
-            />
-          </div>
-          
-          <div className="mt-12 p-6 bg-blue-50 rounded-lg border border-blue-100 shadow-sm">
-            <p className="text-lg font-medium text-blue-800 mb-2">Impact Statistic</p>
-            <p className="text-xl md:text-2xl font-bold text-blue-900">
-              Technical projects in regulated environments experience an average of 45% budget overrun and 60% delay on initial schedules.
+    <section id="problem" className="py-24 bg-gray-50">
+      <div className="container mx-auto px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              The Hidden Cost of 
+              <span className="text-red-600"> Complex Development</span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              In regulated industries, product development has become a costly obstacle course. 
+              Every project faces the same critical challenges that drain resources and delay innovation.
             </p>
           </div>
           
-          <p className="mt-8 text-gray-700 italic">
-            Traditional project management methods are reaching their limits in the face of these challenges. 
-            A radically new approach is necessary to transform the economics of complex product development.
-          </p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+            <StatCard
+              icon={<DollarSign className="w-8 h-8 text-red-600" />}
+              value="45%"
+              label="Budget Overrun"
+              description="Average cost increase from initial estimates in regulated development projects"
+            />
+            
+            <StatCard
+              icon={<Clock className="w-8 h-8 text-red-600" />}
+              value="60%"
+              label="Schedule Delays"
+              description="Typical timeline extension beyond planned delivery dates"
+            />
+            
+            <StatCard
+              icon={<AlertTriangle className="w-8 h-8 text-red-600" />}
+              value="73%"
+              label="Compliance Issues"
+              description="Projects experiencing regulatory compliance problems during development"
+            />
+            
+            <StatCard
+              icon={<Users className="w-8 h-8 text-red-600" />}
+              value="40%"
+              label="Resource Waste"
+              description="Time spent on manual, repetitive compliance tasks instead of innovation"
+            />
+          </div>
+          
+          <div className="bg-white p-12 rounded-3xl shadow-xl border border-gray-100">
+            <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">
+              Why Traditional Approaches Fail
+            </h3>
+            
+            <div className="grid md:grid-cols-2 gap-12">
+              <div className="space-y-6">
+                <div className="flex items-start">
+                  <div className="w-3 h-3 bg-red-500 rounded-full mt-2 mr-4 flex-shrink-0"></div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900 mb-2">Fragmented Workflows</h4>
+                    <p className="text-gray-600">Disconnected tools and processes create information silos, leading to errors and inefficiencies.</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start">
+                  <div className="w-3 h-3 bg-red-500 rounded-full mt-2 mr-4 flex-shrink-0"></div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900 mb-2">Manual Compliance</h4>
+                    <p className="text-gray-600">Reactive compliance checking after development phases, causing costly rework and delays.</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="space-y-6">
+                <div className="flex items-start">
+                  <div className="w-3 h-3 bg-red-500 rounded-full mt-2 mr-4 flex-shrink-0"></div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900 mb-2">Resource Constraints</h4>
+                    <p className="text-gray-600">Dependence on scarce, highly specialized human resources that become bottlenecks.</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start">
+                  <div className="w-3 h-3 bg-red-500 rounded-full mt-2 mr-4 flex-shrink-0"></div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900 mb-2">Evolving Regulations</h4>
+                    <p className="text-gray-600">Constant regulatory changes require expensive reconfigurations and expert consultations.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

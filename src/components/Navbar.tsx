@@ -21,35 +21,42 @@ const Navbar: React.FC = () => {
   return (
     <nav
       className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'
+        isScrolled 
+          ? 'bg-white/95 backdrop-blur-md shadow-lg py-3' 
+          : 'bg-transparent py-6'
       }`}
     >
-      <div className="container mx-auto px-4 md:px-6 lg:px-8">
+      <div className="container mx-auto px-6">
         <div className="flex justify-between items-center">
-          <a href="#" className="flex items-center space-x-2">
-            <img 
-              src="/logo.svg" 
-              alt="OrchestAll AI Logo" 
-              className="h-12 w-auto"
-            />
+          <a href="#" className="flex items-center space-x-3">
+            <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
+              <span className="text-white font-bold text-lg">O</span>
+            </div>
+            <span className={`text-xl font-bold ${isScrolled ? 'text-gray-900' : 'text-white'}`}>
+              OrchestAll AI
+            </span>
           </a>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
-            <a href="#" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">Home</a>
-            <a href="#solution" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">Solution</a>
-            <a href="#benefits" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">Benefits</a>
-            <a href="#use-cases" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">Industries</a>
-            <a href="#reqif-viewer" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">ReqIF Viewer</a>
-            <a href="#about" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">About</a>
-            <a href="#contact" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">Contact</a>
+            {['Solution', 'Benefits', 'Industries', 'ReqIF Viewer', 'About', 'Contact'].map((item) => (
+              <a 
+                key={item}
+                href={`#${item.toLowerCase().replace(' ', '-')}`} 
+                className={`font-medium transition-colors hover:text-blue-500 ${
+                  isScrolled ? 'text-gray-700' : 'text-gray-300 hover:text-white'
+                }`}
+              >
+                {item}
+              </a>
+            ))}
           </div>
 
           {/* Demo CTA Button */}
           <div className="hidden md:block">
             <a
               href="#contact"
-              className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-md transition-colors"
+              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium py-3 px-6 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl"
             >
               Request Demo
             </a>
@@ -58,7 +65,7 @@ const Navbar: React.FC = () => {
           {/* Mobile Menu Button */}
           <button 
             onClick={() => setIsOpen(!isOpen)} 
-            className="md:hidden text-gray-800"
+            className={`md:hidden ${isScrolled ? 'text-gray-900' : 'text-white'}`}
           >
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
@@ -69,21 +76,23 @@ const Navbar: React.FC = () => {
       <div 
         className={`md:hidden transition-all duration-300 ease-in-out ${
           isOpen 
-            ? 'max-h-screen opacity-100 bg-white shadow-lg border-t border-gray-100 py-4' 
+            ? 'max-h-screen opacity-100 bg-white/95 backdrop-blur-md shadow-lg border-t border-gray-200 py-6' 
             : 'max-h-0 opacity-0 overflow-hidden'
         }`}
       >
-        <div className="container mx-auto px-4 flex flex-col space-y-4">
-          <a href="#" className="text-gray-700 hover:text-blue-600 font-medium px-2 py-2 transition-colors">Home</a>
-          <a href="#solution" className="text-gray-700 hover:text-blue-600 font-medium px-2 py-2 transition-colors">Solution</a>
-          <a href="#benefits" className="text-gray-700 hover:text-blue-600 font-medium px-2 py-2 transition-colors">Benefits</a>
-          <a href="#use-cases" className="text-gray-700 hover:text-blue-600 font-medium px-2 py-2 transition-colors">Industries</a>
-          <a href="#reqif-viewer" className="text-gray-700 hover:text-blue-600 font-medium px-2 py-2 transition-colors">ReqIF Viewer</a>
-          <a href="#about" className="text-gray-700 hover:text-blue-600 font-medium px-2 py-2 transition-colors">About</a>
-          <a href="#contact" className="text-gray-700 hover:text-blue-600 font-medium px-2 py-2 transition-colors">Contact</a>
+        <div className="container mx-auto px-6 flex flex-col space-y-4">
+          {['Solution', 'Benefits', 'Industries', 'ReqIF Viewer', 'About', 'Contact'].map((item) => (
+            <a 
+              key={item}
+              href={`#${item.toLowerCase().replace(' ', '-')}`} 
+              className="text-gray-700 hover:text-blue-600 font-medium px-2 py-2 transition-colors"
+            >
+              {item}
+            </a>
+          ))}
           <a
             href="#contact"
-            className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md text-center transition-colors"
+            className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium py-3 px-6 rounded-lg text-center transition-all duration-200"
           >
             Request Demo
           </a>

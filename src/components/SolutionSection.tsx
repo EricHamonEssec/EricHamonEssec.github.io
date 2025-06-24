@@ -1,95 +1,128 @@
 import React from 'react';
-import { Bot, CheckCircle } from 'lucide-react';
+import { Bot, Zap, Shield, Workflow } from 'lucide-react';
 
-interface SolutionPointProps {
+interface FeatureCardProps {
+  icon: React.ReactNode;
   title: string;
   description: string;
+  features: string[];
 }
 
-const SolutionPoint: React.FC<SolutionPointProps> = ({ title, description }) => {
+const FeatureCard: React.FC<FeatureCardProps> = ({ icon, title, description, features }) => {
   return (
-    <div className="flex mb-6">
-      <div className="mr-4 mt-1">
-        <CheckCircle className="w-6 h-6 text-blue-500" />
+    <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+      <div className="flex items-center mb-6">
+        <div className="p-4 bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl mr-4">
+          {icon}
+        </div>
+        <h3 className="text-xl font-bold text-gray-900">{title}</h3>
       </div>
-      <div>
-        <h3 className="text-lg font-semibold text-gray-800 mb-1">{title}</h3>
-        <p className="text-gray-600">{description}</p>
-      </div>
+      
+      <p className="text-gray-600 mb-6">{description}</p>
+      
+      <ul className="space-y-3">
+        {features.map((feature, index) => (
+          <li key={index} className="flex items-start">
+            <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+            <span className="text-gray-700">{feature}</span>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
 
 const SolutionSection: React.FC = () => {
   return (
-    <section id="solution" className="py-16 md:py-24">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-8 text-center">
-            Our Revolutionary Approach: A Complete Virtual AI Team
-          </h2>
+    <section id="solution" className="py-24 bg-white">
+      <div className="container mx-auto px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              Meet Your
+              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> Virtual AI Team</span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              OrchestAll AI transforms complex product development with specialized AI agents that work together 
+              as a complete virtual team, ensuring compliance and accelerating innovation.
+            </p>
+          </div>
           
-          <div className="grid md:grid-cols-2 gap-12 items-center mb-12">
-            <div>
-              <p className="text-lg text-gray-700 mb-6">
-                OrchestAll AI offers an unprecedented approach based on agentive artificial intelligence technology, 
-                specifically designed to address the challenges of technical development and regulatory compliance.
-              </p>
-              
-              <p className="text-lg text-gray-700 mb-6">
-                Our platform simulates a true virtual project team, where each activity of the development cycle 
-                is handled by a specialized AI agent, equipped with integrated knowledge of relevant standards and regulations.
-              </p>
-              
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+            <FeatureCard
+              icon={<Bot className="w-8 h-8 text-blue-600" />}
+              title="AI Specialists"
+              description="Each role in your development process is handled by a dedicated AI agent with deep domain expertise."
+              features={[
+                "Requirements analysts",
+                "System architects", 
+                "Compliance validators",
+                "Test engineers"
+              ]}
+            />
+            
+            <FeatureCard
+              icon={<Shield className="w-8 h-8 text-green-600" />}
+              title="Built-in Compliance"
+              description="Regulatory knowledge is embedded in every agent, ensuring native compliance throughout development."
+              features={[
+                "A-SPICE standards",
+                "ISO 26262 safety",
+                "DO-178C aerospace",
+                "FDA medical devices"
+              ]}
+            />
+            
+            <FeatureCard
+              icon={<Workflow className="w-8 h-8 text-purple-600" />}
+              title="Smart Orchestration"
+              description="An AI project manager coordinates all agents, optimizing workflows and maintaining perfect traceability."
+              features={[
+                "Automated task routing",
+                "Dependency management",
+                "Progress monitoring",
+                "Quality assurance"
+              ]}
+            />
+            
+            <FeatureCard
+              icon={<Zap className="w-8 h-8 text-orange-600" />}
+              title="Tool Integration"
+              description="Seamlessly connects with your existing engineering tools and automatically generates compliant deliverables."
+              features={[
+                "CAD/PLM systems",
+                "Simulation tools",
+                "Testing platforms",
+                "Documentation systems"
+              ]}
+            />
+          </div>
+          
+          <div className="bg-gradient-to-br from-blue-50 via-purple-50 to-indigo-50 p-12 rounded-3xl border border-blue-100">
+            <div className="text-center mb-8">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                The OrchestAll AI Advantage
+              </h3>
               <p className="text-lg text-gray-700">
-                From requirements analysis to final product validation, these agents collaborate in an orchestrated 
-                manner to automatically or semi-automatically produce development deliverables that are inherently 
-                compliant with standards such as A-SPICE, ISO 26262, and other industry-specific regulations.
+                We don't replace human expertise—we amplify it. Our AI agents handle the repetitive, 
+                compliance-heavy tasks so your engineers can focus on innovation and creative problem-solving.
               </p>
             </div>
             
-            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-xl border border-blue-100 shadow-sm flex justify-center items-center">
-              <div className="relative">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-32 h-32 rounded-full bg-blue-500 opacity-10 animate-pulse-slow"></div>
-                </div>
-                <Bot className="w-32 h-32 text-blue-600 relative z-10" />
+            <div className="grid md:grid-cols-3 gap-8 text-center">
+              <div>
+                <div className="text-3xl font-bold text-blue-600 mb-2">24/7</div>
+                <div className="text-gray-700">Always available virtual team</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-purple-600 mb-2">100%</div>
+                <div className="text-gray-700">Consistent compliance checking</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-indigo-600 mb-2">∞</div>
+                <div className="text-gray-700">Unlimited scalability</div>
               </div>
             </div>
-          </div>
-          
-          <div className="grid md:grid-cols-2 gap-x-12 gap-y-6">
-            <SolutionPoint 
-              title="A Complete Virtual Team"
-              description="Each essential development role is represented by a specialized AI agent, forming a virtual team available 24/7."
-            />
-            
-            <SolutionPoint 
-              title="Integrated Regulatory Knowledge"
-              description="Agents are programmed with deep knowledge of applicable standards and regulations, ensuring native compliance."
-            />
-            
-            <SolutionPoint 
-              title="Intelligent Orchestration"
-              description="An 'AI project manager' coordinates the whole, manages interdependencies, optimizes workflows, and maintains continuous compliance monitoring."
-            />
-            
-            <SolutionPoint 
-              title="Automated Deliverable Production"
-              description="Automatic or semi-automatic generation of documentation, code, tests, and other artifacts compliant with regulatory requirements."
-            />
-            
-            <SolutionPoint 
-              title="Integration with Existing Tools"
-              description="Seamless connection with your CAD, simulation, ALM, PLM, and other engineering tools."
-            />
-          </div>
-          
-          <div className="mt-12 p-6 bg-blue-50 rounded-lg border border-blue-100 shadow-sm">
-            <p className="text-lg italic text-blue-800">
-              "We don't replace human expertise, we multiply it. OrchestAll AI allows engineers to focus on innovation 
-              while our AI agents take care of rigor and compliance."
-            </p>
           </div>
         </div>
       </div>
