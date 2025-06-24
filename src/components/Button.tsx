@@ -6,7 +6,7 @@ interface ButtonProps {
   size?: 'sm' | 'md' | 'lg';
   className?: string;
   href?: string;
-  onClick?: (e: React.FormEvent) => void;
+  onClick?: () => void;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -17,18 +17,18 @@ const Button: React.FC<ButtonProps> = ({
   href,
   onClick,
 }) => {
-  const baseClasses = 'inline-flex items-center justify-center font-semibold rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2';
+  const baseClasses = 'inline-block font-medium rounded-md transition-all duration-200 text-center';
   
   const variantClasses = {
-    primary: 'bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg hover:shadow-xl focus:ring-blue-500',
-    secondary: 'bg-gray-100 hover:bg-gray-200 text-gray-900 shadow-sm hover:shadow focus:ring-gray-500',
-    outline: 'border-2 border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50 focus:ring-gray-500',
+    primary: 'bg-blue-600 hover:bg-blue-700 text-white shadow-sm hover:shadow',
+    secondary: 'bg-indigo-100 hover:bg-indigo-200 text-blue-700 hover:text-blue-800',
+    outline: 'border-2 border-blue-600 text-blue-600 hover:bg-blue-50',
   };
   
   const sizeClasses = {
-    sm: 'text-sm py-2 px-4',
-    md: 'py-3 px-6',
-    lg: 'text-lg py-4 px-8',
+    sm: 'text-sm py-1.5 px-3',
+    md: 'py-2 px-6',
+    lg: 'text-lg py-3 px-8',
   };
   
   const allClasses = `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;
@@ -42,7 +42,7 @@ const Button: React.FC<ButtonProps> = ({
   }
   
   return (
-    <button onClick={onClick} className={allClasses} type="submit">
+    <button onClick={onClick} className={allClasses}>
       {children}
     </button>
   );

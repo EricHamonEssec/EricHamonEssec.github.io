@@ -1,107 +1,78 @@
 import React from 'react';
-import { TrendingDown, Clock, CheckCircle, Shield, Repeat } from 'lucide-react';
+import { TrendingUp, Clock, CheckSquare, ShieldCheck, RefreshCw as Refresh } from 'lucide-react';
 
 interface BenefitCardProps {
-  icon: React.ReactNode;
   title: string;
-  value: string;
   description: string;
-  color: string;
+  icon: React.ReactNode;
+  percentage?: string;
 }
 
-const BenefitCard: React.FC<BenefitCardProps> = ({ icon, title, value, description, color }) => {
+const BenefitCard: React.FC<BenefitCardProps> = ({ title, description, icon, percentage }) => {
   return (
-    <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 group">
-      <div className="flex items-center mb-6">
-        <div className={`p-4 ${color} rounded-xl mr-4 group-hover:scale-110 transition-transform`}>
+    <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-gray-100 flex flex-col h-full">
+      <div className="flex items-center mb-4">
+        <div className="p-3 bg-blue-50 rounded-lg mr-4">
           {icon}
         </div>
         <div>
-          <h3 className="text-xl font-bold text-gray-900">{title}</h3>
-          <div className="text-3xl font-bold text-blue-600 mt-1">{value}</div>
+          <h3 className="text-xl font-semibold text-gray-800">{title}</h3>
+          {percentage && <p className="text-blue-600 font-bold">{percentage}</p>}
         </div>
       </div>
-      <p className="text-gray-600">{description}</p>
+      <p className="text-gray-600 flex-grow">{description}</p>
     </div>
   );
 };
 
 const BenefitsSection: React.FC = () => {
   return (
-    <section id="benefits" className="py-24 bg-gray-50">
-      <div className="container mx-auto px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Transform Your
-              <span className="text-green-600"> Development Economics</span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Experience dramatic improvements in cost, speed, and quality while maintaining 
-              perfect regulatory compliance across your entire development lifecycle.
-            </p>
-          </div>
+    <section id="benefits" className="py-16 md:py-24">
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-10 text-center">
+            Radically Transform Your Development Economics
+          </h2>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-            <BenefitCard
-              icon={<TrendingDown className="w-8 h-8 text-green-600" />}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            <BenefitCard 
               title="Cost Reduction"
-              value="30-70%"
-              description="Dramatically reduce development costs by automating repetitive tasks and eliminating costly rework cycles."
-              color="bg-green-50"
+              description="Significantly reduce development costs by automating repetitive tasks and minimizing errors across the development lifecycle."
+              icon={<TrendingUp className="w-6 h-6 text-blue-600" />}
+              percentage="30-70%"
             />
             
-            <BenefitCard
-              icon={<Clock className="w-8 h-8 text-blue-600" />}
-              title="Faster Time-to-Market"
-              value="Up to 50%"
-              description="Accelerate your development cycles through intelligent automation and parallel processing capabilities."
-              color="bg-blue-50"
+            <BenefitCard 
+              title="Cycle Acceleration"
+              description="Drastically reduce your time to market through automation and workflow optimization, gaining a decisive competitive advantage."
+              icon={<Clock className="w-6 h-6 text-blue-600" />}
+              percentage="Up to 50%"
             />
             
-            <BenefitCard
-              icon={<CheckCircle className="w-8 h-8 text-purple-600" />}
-              title="Quality Improvement"
-              value="99.9%"
-              description="Achieve consistent quality with automated verification, complete traceability, and systematic compliance checking."
-              color="bg-purple-50"
+            <BenefitCard 
+              title="Quality & Compliance Improvement"
+              description="Benefit from better consistency between different phases, complete traceability of decisions, and systematic verification against industry standards."
+              icon={<CheckSquare className="w-6 h-6 text-blue-600" />}
             />
             
-            <BenefitCard
-              icon={<Shield className="w-8 h-8 text-indigo-600" />}
-              title="Certification Risk"
-              value="85% Lower"
-              description="Minimize certification risks with built-in compliance verification and automated regulatory documentation."
-              color="bg-indigo-50"
+            <BenefitCard 
+              title="Certification Risk Reduction"
+              description="The integrated compliance approach drastically reduces certification risks and costs, which traditionally represent a significant portion of development budgets."
+              icon={<ShieldCheck className="w-6 h-6 text-blue-600" />}
             />
             
-            <BenefitCard
-              icon={<Repeat className="w-8 h-8 text-orange-600" />}
-              title="Regulatory Updates"
-              value="Automatic"
-              description="Stay current with evolving regulations through continuous agent updates and knowledge base maintenance."
-              color="bg-orange-50"
+            <BenefitCard 
+              title="Regulatory Evolution Adaptability"
+              description="Agents are regularly updated to remain compliant with regulatory developments, eliminating the need for major reconfigurations."
+              icon={<Refresh className="w-6 h-6 text-blue-600" />}
             />
           </div>
           
-          <div className="bg-white p-12 rounded-3xl shadow-xl border border-gray-100">
-            <div className="max-w-4xl mx-auto">
-              <blockquote className="text-2xl font-medium text-gray-900 mb-8 text-center italic">
-                "OrchestAll AI transformed our development process. We reduced our automotive software 
-                development cycle from 18 to 9 months while improving A-SPICE compliance. Our engineers 
-                now focus on innovation instead of regulatory paperwork."
-              </blockquote>
-              
-              <div className="flex items-center justify-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center mr-4">
-                  <span className="text-white font-bold text-xl">M</span>
-                </div>
-                <div>
-                  <div className="font-semibold text-gray-900">Marie Dubois</div>
-                  <div className="text-gray-600">R&D Director, Automotive Systems</div>
-                </div>
-              </div>
-            </div>
+          <div className="bg-gray-50 p-8 rounded-xl border border-gray-200 shadow-sm">
+            <p className="text-lg italic text-gray-700 mb-4">
+              "Thanks to OrchestAll AI, we reduced our development cycle from 18 to 9 months while improving our compliance with A-SPICE standards. Our engineers can finally focus on innovation rather than regulatory paperwork."
+            </p>
+            <p className="text-gray-500 font-medium">— R&D Director, Automotive Company</p>
           </div>
         </div>
       </div>
